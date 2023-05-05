@@ -16,12 +16,13 @@ if (userTypeSelection == 1) {
     `Type '1' to list all users\nType '2' to creat a user\nType '3' to edit a user\nType '4' to delete a user.`
   );
 }
-let user;
+let users = [];
 switch (managerMainOptionSelection) {
   case "1":
     break;
   case "2":
     createUser();
+    console.log(users);
     break;
   case "3":
     break;
@@ -31,14 +32,13 @@ switch (managerMainOptionSelection) {
     break;
 }
 
-function createUser() {
-  for (user of DEFAULT_USER) {
-    user.id = uuidv4();
-    user.name = showPrompt("Digite o nome do usuário.");
-    user.birthday = showPrompt("Digite sua data de nascimento.");
-    user.registerNumber = showPrompt("Digite o CPF ou CNPJ.");
-    user.balance = showPrompt("Digite o saldo do usuário.");
-    console.log(user);
-  }
+export function createUser() {
+  let user = Object.assign({}, DEFAULT_USER);
+  user.id = uuidv4();
+  user.name = showPrompt("Digite o nome do usuário.");
+  user.birthday = showPrompt("Digite sua data de nascimento.");
+  user.registerNumber = showPrompt("Digite o CPF ou CNPJ.");
+  user.balance = showPrompt("Digite o saldo do usuário.");
+  users.push(user);
 }
-export { user };
+//export { users };

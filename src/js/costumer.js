@@ -6,7 +6,7 @@ import {
   showInvalidOption,
   tryAgain,
 } from "./utils/messaging.js";
-import { user } from "./manager";
+//import { user } from "./manager";
 
 //IF costumer: total balance | withdraw a value | deposit an amount
 // if (userTypeSelection == 2) {
