@@ -17,6 +17,3 @@ if (userTypeSelection != 1 && userTypeSelection != 2) {
     );
   }
 }
-//console.log(userTypeSelection);
-
-//export { userTypeSelection };
