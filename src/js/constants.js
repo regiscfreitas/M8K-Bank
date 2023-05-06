@@ -14,7 +14,13 @@ export const DEFAULT_USER = {
   balance: [
     {
       currentBalance: "",
-      transactionsMade: "",
+      transactionsHistory: [
+        {
+          date: "",
+          amount: "",
+          type: "",
+        },
+      ],
     },
   ],
 };
