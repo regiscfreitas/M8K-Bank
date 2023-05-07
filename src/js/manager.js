@@ -9,7 +9,6 @@ import {
 import { uuidv4 } from "./utils/uuid.js";
 import { DEFAULT_USER } from "./constants.js";
 
-//IF manager, give the options: list of all users | create, edit, delete an user
 let managerMainOptionSelection;
 let managerInput = 1;
 let users = [];
@@ -33,6 +32,7 @@ while (managerInput == 1) {
       editUser();
       break;
     case "4":
+      deleteUser();
       break;
     default:
       break;
@@ -41,6 +41,11 @@ while (managerInput == 1) {
     "Quer realizar outra operação? Digite '1' para SIM e outro valor para NÃO."
   );
 }
+
+export function listAllUsers() {
+  console.table(users);
+}
+
 export function createUser() {
   let user = JSON.parse(JSON.stringify(DEFAULT_USER));
   user.id = uuidv4();
@@ -73,35 +78,46 @@ export function editUser() {
       let optionToBeEditable = showPrompt(
         "Digite a opção que deseja mudar.\n'name'\n'birthday'\n'street'\n'number'\n'zipcode'\ncountry'\n'registernumber'\n'balance'"
       );
-      optionToBeEditable == "name"
-        ? (element.name = showPrompt(`Digite o nome`))
-        : false;
-      optionToBeEditable == "birthday"
-        ? (element.birthday = showPrompt(`Digite a data de nascimento`))
-        : false;
-      optionToBeEditable == "street"
-        ? (element.address[0].street = showPrompt(`Digite a rua`))
-        : false;
-      optionToBeEditable == "number"
-        ? (element.address[0].number = showPrompt(`Digite o numero`))
-        : false;
-      optionToBeEditable == "zipcode"
-        ? (element.address[0].zipcode = showPrompt(`Digite o CEP`))
-        : false;
-      optionToBeEditable == "country"
-        ? (element.address[0].country = showPrompt(`Digite o país`))
-        : false;
-      optionToBeEditable == "registernumber"
-        ? (element.registerNumber = showPrompt(`Digite o CPF ou CNPJ`))
-        : false;
-      optionToBeEditable == "balance"
-        ? (element.balance[0].currentBalance = showPrompt(`Digite o saldo`))
-        : false;
+      switch (optionToBeEditable) {
+        case "name":
+          element.name = showPrompt(`Digite o nome`);
+          break;
+        case "birthday":
+          element.birthday = showPrompt(`Digite a data de nascimento`);
+          break;
+        case "street":
+          element.address[0].street = showPrompt(`Digite a rua`);
+          break;
+        case "number":
+          element.address[0].number = showPrompt(`Digite o numero`);
+          break;
+        case "zipcode":
+          element.address[0].zipcode = showPrompt(`Digite o CEP`);
+          break;
+        case "country":
+          element.address[0].country = showPrompt(`Digite o país`);
+          break;
+        case "registernumber":
+          element.registerNumber = showPrompt(`Digite o CPF ou CNPJ`);
+          break;
+        case "balance":
+          element.balance[0].currentBalance = showPrompt(`Digite o saldo`);
+          break;
+        default:
+          break;
+      }
     }
   });
 }
-export function listAllUsers() {
-  console.log(users);
+
+export function deleteUser() {
+  let userToBeDeleted = showPrompt("Qual o usuario deseja deletar?");
+  let indexToBeDeleted;
+  indexToBeDeleted = users.findIndex(
+    (element, index) => element.name == userToBeDeleted
+  );
+
+  users = users.filter((element, index) => index !== indexToBeDeleted);
 }
 
 export { users };
