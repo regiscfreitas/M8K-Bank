@@ -1,4 +1,4 @@
-import { userTypeSelection } from "./index.js";
+import { userTypeSelection, userSelection } from "./index.js";
 import {
   showAlert,
   showConfirm,
@@ -11,22 +11,26 @@ import { DEFAULT_USER } from "./constants.js";
 
 let managerMainOptionSelection;
 let managerInput = 1;
+let userTypeSelection2;
 let users = [];
 if (userTypeSelection == 2) {
   managerInput = 0;
 }
+
 while (managerInput == 1) {
-  if (userTypeSelection == 1) {
+  if (userTypeSelection == 1 && users.length != 0) {
     managerMainOptionSelection = showPrompt(
-      `Type '1' to list all users\nType '2' to creat a user\nType '3' to edit a user\nType '4' to delete a user.`
+      `Type '1' create a user\nType '2' to list all users\nType '3' to edit a user\nType '4' to delete a user\n`
     );
+  } else if (userTypeSelection == 1 && users.length == 0) {
+    managerMainOptionSelection = showPrompt("Type '1' to create a user");
   }
   switch (managerMainOptionSelection) {
     case "1":
-      listAllUsers();
+      createUser();
       break;
     case "2":
-      createUser();
+      listAllUsers();
       break;
     case "3":
       editUser();
@@ -35,15 +39,23 @@ while (managerInput == 1) {
       deleteUser();
       break;
     default:
+      showInvalidOption();
       break;
   }
   managerInput = showPrompt(
     "Quer realizar outra operação? Digite '1' para SIM e outro valor para NÃO."
   );
 }
+if (userTypeSelection == 1) {
+  userTypeSelection2 = showPrompt(
+    "Deseja fazer login como usuario?\nDigite '1' para sim e outro valor para NÃO."
+  );
+}
 
 export function listAllUsers() {
-  console.table(users);
+  users.length == 0
+    ? showAlert("Nenhum usuário encontrado no banco de dados.")
+    : console.table(users);
 }
 
 export function createUser() {
@@ -112,12 +124,11 @@ export function editUser() {
 
 export function deleteUser() {
   let userToBeDeleted = showPrompt("Qual o usuario deseja deletar?");
-  let indexToBeDeleted;
-  indexToBeDeleted = users.findIndex(
-    (element, index) => element.name == userToBeDeleted
+  let indexToBeDeleted = users.findIndex(
+    (index) => index.name == userToBeDeleted
   );
 
   users = users.filter((element, index) => index !== indexToBeDeleted);
 }
 
-export { users };
+export { users, userTypeSelection2 };
