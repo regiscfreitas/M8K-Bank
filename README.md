@@ -1,2 +1,3 @@
 # M8K-Bank
-A JavaScript project for a bank system.
+
+A JavaScript only project for a bank system.

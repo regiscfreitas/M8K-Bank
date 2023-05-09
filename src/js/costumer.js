@@ -8,16 +8,57 @@ import {
 } from "./utils/messaging.js";
 import { users, userTypeSelection2 } from "./manager.js";
 
-//IF costumer: total balance | withdraw a value | deposit an amount
+let userName,
+  indexToBeSelected,
+  userSelected,
+  costumerOperation,
+  costumerInput,
+  withdrawAmount;
+
+console.log(users);
 export function costumerMenu() {
   if (userTypeSelection == 2 || userTypeSelection2 == 1) {
-    let userName = showPrompt("Digite o nome de usuário.");
+    userName = showPrompt("Digite o nome de usuário.");
     users.length == 0
       ? showAlert("Nenhum usuário encontrado no banco de dados.")
       : showAlert("Usuario encontrado no banco de dados.");
-    if (userName == users.some((element) => element.name)) {
-      console.log("foi");
+    indexToBeSelected = users.findIndex((index) => index.name == userName);
+
+    userSelected = users.filter((element, index) => index == indexToBeSelected);
+  }
+
+  users.length == 0 ? (costumerInput = 0) : (costumerInput = 1);
+  let userBalance = userSelected[0].balance[0].currentBalance;
+  while (costumerInput == 1) {
+    costumerOperation = showPrompt(
+      "Digite '1' para ver seu saldo.\nDigite '2' para sacar.\nDigite '3' para depositar."
+    );
+    switch (costumerOperation) {
+      case "1":
+        userBalance == 0
+          ? showAlert("Você não possui saldo.")
+          : showAlert(`Seu saldo é ${userBalance}`);
+        break;
+      case "2":
+        withdrawAmount = showPrompt("Quanto voce deseja sacar?");
+        while (withdrawAmount > userBalance) {
+          showAlert("Valor inválido.\nVocê não possui saldo suficiente.");
+          withdrawAmount = showPrompt("Quanto voce deseja sacar?");
+        }
+        userSelected[0].balance[0].transactionsHistory[0].date = new Date();
+        userSelected[0].balance[0].transactionsHistory[0].amount =
+          withdrawAmount;
+        userSelected[0].balance[0].transactionsHistory[0].type = "Withdraw";
+        userBalance -= withdrawAmount;
+        console.log(userSelected);
+        break;
+      default:
+        break;
     }
+    costumerInput = showPrompt(
+      "Quer realizar outra operação? Digite '1' para SIM e outro valor para NÃO."
+    );
   }
 }
+
 costumerMenu();
