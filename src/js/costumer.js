@@ -13,7 +13,8 @@ let userName,
   userSelected,
   costumerOperation,
   costumerInput,
-  withdrawAmount;
+  withdrawAmount,
+  depositAmount;
 
 console.log(users);
 export function costumerMenu() {
@@ -41,8 +42,12 @@ export function costumerMenu() {
         break;
       case "2":
         withdrawAmount = showPrompt("Quanto voce deseja sacar?");
-        while (withdrawAmount > userBalance) {
-          showAlert("Valor inválido.\nVocê não possui saldo suficiente.");
+        while (Number(withdrawAmount) > userBalance) {
+          console.log("userBalance:", userBalance);
+          console.log("withdrawAmount:", withdrawAmount);
+          showAlert(
+            `Voce não pode sacar ${withdrawAmount} reais.\nVocê não possui saldo suficiente.\nSeu saldo atual é ${userBalance}`
+          );
           withdrawAmount = showPrompt("Quanto voce deseja sacar?");
         }
         userSelected[0].balance[0].transactionsHistory[0].date = new Date();
@@ -50,7 +55,16 @@ export function costumerMenu() {
           withdrawAmount;
         userSelected[0].balance[0].transactionsHistory[0].type = "Withdraw";
         userBalance -= withdrawAmount;
-        console.log(userSelected);
+        break;
+      case "3":
+        depositAmount = Number(showPrompt("Quanto voce deseja depositar?"));
+        userSelected[0].balance[0].transactionsHistory[0].date = new Date();
+        userSelected[0].balance[0].transactionsHistory[0].amount =
+          depositAmount;
+        userSelected[0].balance[0].transactionsHistory[0].type = "Deposit";
+        userBalance += depositAmount;
+
+        //? THE CODE HAVE A BUG IN THE VALUES TO DEPOSIT, AND THE FIRST TIME THAT I WANT TO WITHDRAW
         break;
       default:
         break;
