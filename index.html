@@ -7,7 +7,73 @@
     <title>M8K Bank</title>
   </head>
   <body>
-    <div><span> M8K Bank </span></div>
+    <h1>Bem vindo ao M8K Bank</h1>
+    <form action="" method="">
+      <label>
+        <input type="radio" name="tipo" value="cliente" /> Acessar como cliente
+      </label>
+
+      <label>
+        <input type="radio" name="tipo" value="gerente" /> Acessar como gerente
+      </label>
+
+      <hr />
+
+      <div id="opcoes-gerente" style="display: none">
+        <h2>Opções de gerente</h2>
+
+        <label>
+          <input type="radio" name="opcao" value="listar" /> Listar clientes
+        </label>
+
+        <label>
+          <input type="radio" name="opcao" value="criar" /> Criar cliente
+        </label>
+
+        <label>
+          <input type="radio" name="opcao" value="editar" /> Editar cliente
+        </label>
+
+        <label>
+          <input type="radio" name="opcao" value="deletar" /> Deletar cliente
+        </label>
+      </div>
+
+      <div id="opcoes-cliente" style="display: none">
+        <h2>Opções de cliente</h2>
+
+        <label>
+          <input type="radio" name="opcao" value="saldo" /> Ver saldo
+        </label>
+
+        <label> <input type="radio" name="opcao" value="sacar" /> Sacar </label>
+
+        <label>
+          <input type="radio" name="opcao" value="depositar" /> Depositar
+        </label>
+      </div>
+
+      <hr />
+
+      <input type="submit" value="Acessar" />
+    </form>
+    <script>
+      // Mostrar opções de acordo com o tipo de usuário selecionado
+      const tipoCliente = document.querySelector('input[value="cliente"]');
+      const tipoGerente = document.querySelector('input[value="gerente"]');
+      const opcoesGerente = document.getElementById("opcoes-gerente");
+      const opcoesCliente = document.getElementById("opcoes-cliente");
+
+      tipoCliente.addEventListener("change", function () {
+        opcoesGerente.style.display = "none";
+        opcoesCliente.style.display = "block";
+      });
+
+      tipoGerente.addEventListener("change", function () {
+        opcoesGerente.style.display = "block";
+        opcoesCliente.style.display = "none";
+      });
+    </script>
     <script type="module" src="/src/js/index.js"></script>
     <script src="https://code.jquery.com/jquery-1.9.1.js"></script>
     <script type="module" src="/src/js/manager.js"></script>
