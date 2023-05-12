@@ -3,22 +3,28 @@
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     justify-content: center;
     margin-top: 8rem;
-
-}
-
-#optionForm {
-    border: 1px solid magenta;
 }
 
 #optionForm input[type="submit"] {
     display: block;
     margin: 0 auto;
+    width: 10rem;
+    height: 2rem;
+    border-radius: 1rem;
+    -webkit-border-radius: 1rem;
+    -moz-border-radius: 1rem;
+    -ms-border-radius: 1rem;
+    -o-border-radius: 1rem;
+}
+
+#optionForm {
+    border: 10px solid;
+    border-image: linear-gradient(to right, rgb(54, 117, 136), rgb(75, 0, 130))1;
+    padding: 3rem;
 
 }
 
-#submit {
-    width: 10rem;
-    height: 2rem;
+form {
     border-radius: 1rem;
     -webkit-border-radius: 1rem;
     -moz-border-radius: 1rem;
