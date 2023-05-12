@@ -16,7 +16,6 @@ let userName,
   withdrawAmount,
   depositAmount;
 
-console.log(users);
 export function costumerMenu() {
   if (userTypeSelection == 2 || userTypeSelection2 == 1) {
     userName = showPrompt("Digite o nome de usuário.");
@@ -64,7 +63,6 @@ export function costumerMenu() {
         userSelected[0].balance[0].transactionsHistory[0].type = "Deposit";
         userBalance += depositAmount;
 
-        //? THE CODE HAVE A BUG IN THE VALUES TO DEPOSIT, AND THE FIRST TIME THAT I WANT TO WITHDRAW
         break;
       default:
         break;
@@ -75,4 +73,4 @@ export function costumerMenu() {
   }
 }
 
-costumerMenu();
+//costumerMenu();

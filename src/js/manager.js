@@ -17,35 +17,35 @@ if (userTypeSelection == 2) {
   managerInput = 0;
 }
 
-while (managerInput == 1) {
-  if (userTypeSelection == 1 && users.length != 0) {
-    managerMainOptionSelection = showPrompt(
-      `Type '1' create a user\nType '2' to list all users\nType '3' to edit a user\nType '4' to delete a user\n`
-    );
-  } else if (userTypeSelection == 1 && users.length == 0) {
-    managerMainOptionSelection = showPrompt("Type '1' to create a user");
-  }
-  switch (managerMainOptionSelection) {
-    case "1":
-      createUser();
-      break;
-    case "2":
-      listAllUsers();
-      break;
-    case "3":
-      editUser();
-      break;
-    case "4":
-      deleteUser();
-      break;
-    default:
-      showInvalidOption();
-      break;
-  }
-  managerInput = showPrompt(
-    "Quer realizar outra operação? Digite '1' para SIM e outro valor para NÃO."
-  );
-}
+// while (managerInput == 1) {
+//   if (userTypeSelection == 1 && users.length != 0) {
+//     managerMainOptionSelection = showPrompt(
+//       `Type '1' create a user\nType '2' to list all users\nType '3' to edit a user\nType '4' to delete a user\n`
+//     );
+//   } else if (userTypeSelection == 1 && users.length == 0) {
+//     managerMainOptionSelection = showPrompt("Type '1' to create a user");
+//   }
+//   switch (managerMainOptionSelection) {
+//     case "1":
+//       createUser();
+//       break;
+//     case "2":
+//       listAllUsers();
+//       break;
+//     case "3":
+//       editUser();
+//       break;
+//     case "4":
+//       deleteUser();
+//       break;
+//     default:
+//       showInvalidOption();
+//       break;
+//   }
+//   managerInput = showPrompt(
+//     "Quer realizar outra operação? Digite '1' para SIM e outro valor para NÃO."
+//   );
+// }
 if (userTypeSelection == 1) {
   userTypeSelection2 = showPrompt(
     "Deseja fazer login como usuario?\nDigite '1' para sim e outro valor para NÃO."

@@ -1,0 +1,27 @@
+#acessForm {
+    display: flex;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    justify-content: center;
+    margin-top: 8rem;
+
+}
+
+#optionForm {
+    border: 1px solid magenta;
+}
+
+#optionForm input[type="submit"] {
+    display: block;
+    margin: 0 auto;
+
+}
+
+#submit {
+    width: 10rem;
+    height: 2rem;
+    border-radius: 1rem;
+    -webkit-border-radius: 1rem;
+    -moz-border-radius: 1rem;
+    -ms-border-radius: 1rem;
+    -o-border-radius: 1rem;
+}
