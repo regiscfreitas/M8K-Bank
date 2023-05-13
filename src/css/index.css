@@ -1,6 +1,5 @@
 #acessForm {
     display: flex;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     justify-content: center;
     margin-top: 8rem;
 }
@@ -15,19 +14,16 @@
     -moz-border-radius: 1rem;
     -ms-border-radius: 1rem;
     -o-border-radius: 1rem;
+
 }
 
 #optionForm {
+    width: auto;
     border: 10px solid;
-    border-image: linear-gradient(to right, rgb(54, 117, 136), rgb(75, 0, 130))1;
-    padding: 3rem;
-
-}
-
-form {
-    border-radius: 1rem;
-    -webkit-border-radius: 1rem;
-    -moz-border-radius: 1rem;
-    -ms-border-radius: 1rem;
-    -o-border-radius: 1rem;
+    border-radius: 9rem;
+    padding: 4rem;
+    -webkit-border-radius: 9rem;
+    -moz-border-radius: 9rem;
+    -ms-border-radius: 9rem;
+    -o-border-radius: 9rem;
 }
