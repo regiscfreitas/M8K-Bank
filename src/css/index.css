@@ -1,10 +1,4 @@
-#acessForm {
-    display: flex;
-    justify-content: center;
-    margin-top: 8rem;
-}
-
-#optionForm input[type="submit"] {
+.optionsForm input[type="submit"] {
     display: block;
     margin: 0 auto;
     width: 10rem;
@@ -15,15 +9,4 @@
     -ms-border-radius: 1rem;
     -o-border-radius: 1rem;
 
-}
-
-#optionForm {
-    width: auto;
-    border: 10px solid;
-    border-radius: 9rem;
-    padding: 4rem;
-    -webkit-border-radius: 9rem;
-    -moz-border-radius: 9rem;
-    -ms-border-radius: 9rem;
-    -o-border-radius: 9rem;
 }

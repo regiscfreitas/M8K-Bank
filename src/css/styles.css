@@ -5,3 +5,22 @@ body {
 
 
 }
+
+.mainForm {
+    display: flex;
+    justify-content: center;
+    margin-top: 8rem;
+
+}
+
+.optionsForm {
+    width: auto;
+    border: 10px solid;
+    border-radius: 9rem;
+    padding: 4rem;
+    padding-top: 1.8rem;
+    -webkit-border-radius: 9rem;
+    -moz-border-radius: 9rem;
+    -ms-border-radius: 9rem;
+    -o-border-radius: 9rem;
+}
