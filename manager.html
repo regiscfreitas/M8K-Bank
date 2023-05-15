@@ -5,28 +5,34 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="/src/css/styles.css" />
-    <link rel="stylesheet" href="/src/css/index.css" />
+    <link rel="stylesheet" href="/src/css/manager.css" />
     <title>M8K Bank - Manager Area</title>
   </head>
   <body>
-    <div id="opcoes-gerente">
-      <h2>Gerente</h2>
+    <div id="opcoes-gerente" class="mainForm">
+      <form method="GET" class="optionsForm" id="formLogin">
+        <h2 class="formTitle"><button id="backBtn" class="backButton"><span>&#8592;</span></button>Gerente</h2>
+        <label>
+          <input type="submit" name="list" value="&#8594" formaction="listClients.html" />
+          <span>Listar clientes</span> 
+        </label>
 
-      <label>
-        <input type="radio" name="opcao" value="listar" /> Listar clientes
-      </label>
+        <label>
+          <input type="submit" name="create" value="&#8594" formaction="createClient.html"/>
+          <span>Criar cliente</span>
+        </label>
 
-      <label>
-        <input type="radio" name="opcao" value="criar" /> Criar cliente
-      </label>
+        <label>
+          <input type="submit" name="edit" value="&#8594" formaction="editClient.html"/>
+          <span>Editar cliente</span>
+        </label>
 
-      <label>
-        <input type="radio" name="opcao" value="editar" /> Editar cliente
-      </label>
-
-      <label>
-        <input type="radio" name="opcao" value="deletar" /> Deletar cliente
-      </label>
+        <label>
+          <input type="submit" name="delete" value="&#8594" formaction="deleteClient.html"/>
+          <span>Deletar cliente</span>
+        </label>
+      </form>
     </div>
+    <script type="module" src="/src/js/modules/backBtn.js"></script>
   </body>
 </html>

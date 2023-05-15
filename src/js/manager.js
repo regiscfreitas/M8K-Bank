@@ -12,7 +12,7 @@ import { DEFAULT_USER } from "./constants.js";
 let managerMainOptionSelection;
 let managerInput = 1;
 let userTypeSelection2;
-let users = [];
+//let users = [];
 if (userTypeSelection == 2) {
   managerInput = 0;
 }

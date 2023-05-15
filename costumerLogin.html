@@ -10,8 +10,13 @@
   </head>
   <body>
     <div class="mainForm">
-      <form id="costumerLogin" method="GET" class="optionsForm">
-        <h2>Cliente</h2>
+      <form id="formLogin" method="GET" class="optionsForm">
+        <h2 class="formTitle">
+          <button class="backButton" id="backBtn">
+            <span>&#8592;</span>
+          </button>
+          Cliente
+        </h2>
         <label>
           <input
             id="login"
@@ -24,5 +29,6 @@
       </form>
     </div>
     <script type="module" src="/src/js/costumer.js"></script>
+    <script type="" src="/src/js/modules/backBtn.js"></script>
   </body>
 </html>

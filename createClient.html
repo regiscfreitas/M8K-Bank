@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/src/css/styles.css" />
+    <link rel="stylesheet" href="src/css/manager.css" />
+    <title>M8K Bank - Manager - Create user</title>
+  </head>
+  <body>
+    <div class="mainForm">
+      <form method="GET" class="optionsForm" id="managerForm">
+        <h2 class="formTitle">
+          <button type="button" class="backButton" id="managerBtn">
+            <span>&#8592;</span></button
+          >Preencha os dados do cliente:
+        </h2>
+        <label for="nome">
+          <span>Nome:</span>
+          <input type="text" id="nome" />
+        </label>
+        <label for="">
+          <span>Data de nascimento:</span>
+          <input type="date" id="birthday" />
+        </label>
+        <label for="">
+          <span>Rua:</span>
+          <input type="text" id="street" />
+        </label>
+        <label for="">
+          <span>Número:</span>
+          <input type="number" id="number" />
+        </label>
+        <label for="">
+          <span>CEP:</span>
+          <input type="number" id="cep" />
+        </label>
+        <label for="">
+          <span>País:</span>
+          <input type="text"" id="country"/>
+        </label>
+        <label for="">
+          <span>CPF ou CNPJ:</span>
+          <input type="number" id="registerNumber" />
+        </label>
+        <label for="">
+          <span>Saldo:</span>
+          <input type="number" id="balance" />
+        </label>
+        <label for="cadastro">
+          <input type="submit" value="Cadastrar cliente" id="cadastro" />
+        </label>
+      </form>
+    </div>
+
+    <script type="module" src="/src/js/modules/backBtn2.js"></script>
+    <script type="module" src="/src/js/modules/createClient.js"></script>
+  </body>
+</html>

@@ -1,0 +1,30 @@
+.optionsForm input[type="submit"] {
+    width: 2rem;
+}
+
+.optionsForm #cadastro {
+    width: 45%;
+}
+
+label {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+
+}
+
+label span {
+    flex-grow: 1;
+    margin-left: 0.3rem;
+}
+
+label span:hover {
+    cursor: pointer;
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    appearance: none;
+    margin: 0;
+}
