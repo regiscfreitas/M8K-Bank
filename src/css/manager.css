@@ -18,7 +18,7 @@ label span {
     margin-left: 0.3rem;
 }
 
-label span:hover {
+.managerSpan:hover {
     cursor: pointer;
 }
 

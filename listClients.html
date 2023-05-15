@@ -8,11 +8,18 @@
     <title>M8K Bank - Manager - All users</title>
   </head>
   <body>
+    <main class="mainForm">
+      <div class="optionsForm">
+        <details>
+          <summary></summary>
+        </details>
+      </div>
+    </main>
+
     <script>
       window.addEventListener("DOMContentLoaded", function () {
         if (localStorage.getItem("usersData")) {
           users = JSON.parse(localStorage.getItem("usersData"));
-          console.log(users);
         }
       });
     </script>

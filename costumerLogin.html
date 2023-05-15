@@ -28,7 +28,14 @@
         <input type="submit" id="submitBtn" value="Acessar" />
       </form>
     </div>
-    <script type="module" src="/src/js/costumer.js"></script>
+    <script type="module" src="/src/js/costumerLogin.js"></script>
     <script type="" src="/src/js/modules/backBtn.js"></script>
+    <script>
+      window.addEventListener("DOMContentLoaded", function () {
+        if (localStorage.getItem("usersData")) {
+          users = JSON.parse(localStorage.getItem("usersData"));
+        }
+      });
+    </script>
   </body>
 </html>

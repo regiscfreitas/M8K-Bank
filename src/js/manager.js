@@ -7,7 +7,6 @@ import {
   tryAgain,
 } from "./utils/messaging.js";
 import { uuidv4 } from "./utils/uuid.js";
-import { DEFAULT_USER } from "./constants.js";
 
 let managerMainOptionSelection;
 let managerInput = 1;
@@ -58,21 +57,21 @@ export function listAllUsers() {
     : console.table(users);
 }
 
-export function createUser() {
-  let user = JSON.parse(JSON.stringify(DEFAULT_USER));
-  user.id = uuidv4();
-  user.name = showPrompt("Digite o nome do cliente.");
-  user.birthday = showPrompt("Digite a data de nascimento do cliente.");
-  user.address[0].street = showPrompt("Digite a rua.");
-  user.address[0].number = showPrompt(
-    "Digite o numero da casa ou apartamento."
-  );
-  user.address[0].zipcode = showPrompt("Digite o CEP do cliente.");
-  user.address[0].country = showPrompt("Digite o país.");
-  user.registerNumber = showPrompt("Digite o CPF ou CNPJ.");
-  user.balance[0].currentBalance = showPrompt("Digite o saldo do cliente.");
-  users.push(user);
-}
+// export function createUser() {
+//   let user = JSON.parse(JSON.stringify(DEFAULT_USER));
+//   user.id = uuidv4();
+//   user.name = showPrompt("Digite o nome do cliente.");
+//   user.birthday = showPrompt("Digite a data de nascimento do cliente.");
+//   user.address[0].street = showPrompt("Digite a rua.");
+//   user.address[0].number = showPrompt(
+//     "Digite o numero da casa ou apartamento."
+//   );
+//   user.address[0].zipcode = showPrompt("Digite o CEP do cliente.");
+//   user.address[0].country = showPrompt("Digite o país.");
+//   user.registerNumber = showPrompt("Digite o CPF ou CNPJ.");
+//   user.balance[0].currentBalance = showPrompt("Digite o saldo do cliente.");
+//   users.push(user);
+// }
 
 export function editUser() {
   let userToBeEditable = showPrompt("Qual usuário voce quer editar?");
@@ -131,4 +130,4 @@ export function deleteUser() {
   users = users.filter((element, index) => index !== indexToBeDeleted);
 }
 
-export { users, userTypeSelection2 };
+export { userTypeSelection2 };

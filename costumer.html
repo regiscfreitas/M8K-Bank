@@ -5,13 +5,17 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="/src/css/styles.css" />
-    <link rel="stylesheet" href="/src/css/costumer.css" />
     <title>M8K Bank - Costumer Area</title>
   </head>
   <body>
     <div class="mainForm">
-      <form action="" class="optionsForm">
-        <h2>Cliente</h2>
+      <form action="" class="optionsForm" id="costumerForm">
+        <h2 class="formTitle">
+          <button class="backButton" id="backBtn">
+            <span>&#8592;</span>
+          </button>
+          Cliente: <span id="costumerLogged"></span>
+        </h2>
         <label>
           Sacar: <br /><input type="number" name="opcao" value="" />
         </label>
@@ -28,10 +32,13 @@
             readonly
             name="opcao"
             value=""
+            id="balance"
           />
         </label>
       </form>
     </div>
+
     <script type="module" src="/src/js/costumer.js"></script>
+    <script src="/src/js/modules/backBtn3.js"></script>
   </body>
 </html>
