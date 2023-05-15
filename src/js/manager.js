@@ -46,11 +46,11 @@ if (userTypeSelection == 2) {
 //     "Quer realizar outra operação? Digite '1' para SIM e outro valor para NÃO."
 //   );
 // }
-if (userTypeSelection == 1) {
-  userTypeSelection2 = showPrompt(
-    "Deseja fazer login como usuario?\nDigite '1' para sim e outro valor para NÃO."
-  );
-}
+// if (userTypeSelection == 1) {
+//   userTypeSelection2 = showPrompt(
+//     "Deseja fazer login como usuario?\nDigite '1' para sim e outro valor para NÃO."
+//   );
+// }
 
 export function listAllUsers() {
   users.length == 0

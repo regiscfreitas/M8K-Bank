@@ -16,6 +16,26 @@ let userName,
   withdrawAmount,
   depositAmount;
 
+document.addEventListener("DOMContentLoaded", function () {
+  const submitBtn = document.getElementById("submitBtn");
+  const loginForm = document.getElementById("costumerLogin");
+
+  submitBtn.addEventListener("click", function (event) {
+    event.preventDefault();
+    userName = document.getElementById("login").value;
+    userSelected = users.find((element) => element.name == userName);
+    if (userName === userSelected?.name) {
+      showAlert(`Usuário encontrado, prosseguindo para o menu do usuário.`);
+      loginForm.action = "/costumer.html";
+      loginForm.submit();
+    } else {
+      showAlert(
+        "Usuário não encontrado no banco de dados. Digite o nome de usuário novamente."
+      );
+    }
+  });
+});
+
 export function costumerMenu() {
   if (userTypeSelection == 2 || userTypeSelection2 == 1) {
     userName = showPrompt("Digite o nome de usuário.");
