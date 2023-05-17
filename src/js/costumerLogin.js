@@ -16,26 +16,30 @@ let userName,
 
 export let loggedUserHtml = document.getElementById("costumerLogged");
 
-document.addEventListener("DOMContentLoaded", function () {
-  const submitBtn = document.getElementById("submitBtn");
-  const loginForm = document.getElementById("formLogin");
+const submitBtn = document.getElementById("submitBtn");
+const loginForm = document.getElementById("formLogin");
 
-  submitBtn.addEventListener("click", function (event) {
-    event.preventDefault();
-    userName = document.getElementById("login").value;
-    userSelected = users.find((element) => element.name == userName);
-    if (userName === userSelected?.name) {
-      showAlert(`Usuário encontrado, prosseguindo para o menu do usuário.`);
-      loggedUserHtml = userSelected;
-      loginForm.action = "/costumer.html";
-      loginForm.submit();
-    } else {
-      showAlert(
-        "Usuário não encontrado no banco de dados. Digite o nome de usuário novamente."
-      );
-    }
-  });
+function loginFormSubmit() {
+  event.preventDefault();
+  userName = document.getElementById("login").value;
+  userSelected = users.find((element) => element.name == userName);
+  if (userName === userSelected?.name) {
+    showAlert(`Usuário encontrado, prosseguindo para o menu do usuário.`);
+    loginForm.action = "/costumer.html";
+    loginForm.submit();
+  } else {
+    showAlert(
+      "Usuário não encontrado no banco de dados. Digite o nome de usuário novamente."
+    );
+  }
+}
+
+loginForm.addEventListener("keypress", function (event) {
+  if (event.key === "Enter") {
+    loginFormSubmit(event);
+  }
 });
+submitBtn.addEventListener("click", loginFormSubmit);
 
 export function costumerMenu() {
   if (userTypeSelection == 2 || userTypeSelection2 == 1) {
