@@ -19,7 +19,7 @@ export let loggedUserHtml = document.getElementById("costumerLogged");
 const submitBtn = document.getElementById("submitBtn");
 const loginForm = document.getElementById("formLogin");
 
-function loginFormSubmit() {
+function loginFormSubmit(event) {
   event.preventDefault();
   userName = document.getElementById("login").value;
   userSelected = users.find((element) => element.name == userName);
@@ -33,12 +33,14 @@ function loginFormSubmit() {
     );
   }
 }
+//loggedUserHtml.textContent = userName;
 
 loginForm.addEventListener("keypress", function (event) {
   if (event.key === "Enter") {
     loginFormSubmit(event);
   }
 });
+
 submitBtn.addEventListener("click", loginFormSubmit);
 
 export function costumerMenu() {

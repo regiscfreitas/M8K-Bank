@@ -14,7 +14,8 @@
           <button class="backButton" id="backBtn">
             <span>&#8592;</span>
           </button>
-          Cliente: <span id="costumerLogged"></span>
+          Cliente:
+          <p id="costumerLogged"></p>
         </h2>
         <label>
           Sacar: <br /><input type="number" name="opcao" value="" />
@@ -39,6 +40,14 @@
     </div>
 
     <script type="module" src="/src/js/costumer.js"></script>
+    <!--<script type="module" src="/src/js/costumerLogin.js"></script>-->
+    <script>
+      window.addEventListener("DOMContentLoaded", function () {
+        if (localStorage.getItem("usersData")) {
+          users = JSON.parse(localStorage.getItem("usersData"));
+        }
+      });
+    </script>
     <script src="/src/js/modules/backBtn3.js"></script>
   </body>
 </html>
