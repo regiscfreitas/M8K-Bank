@@ -9,7 +9,7 @@ const number = document.getElementById("number");
 const cep = document.getElementById("cep");
 const country = document.getElementById("country");
 const registerNumber = document.getElementById("registerNumber");
-const balance = document.getElementById("balance");
+const balance = document.getElementById("balanceDeposit");
 const enviarCadastro = document.getElementById("cadastro");
 
 function createUser() {
@@ -28,7 +28,7 @@ function createUser() {
     registerNumber: registerNumber.value,
     balance: [
       {
-        currentBalance: balance.value,
+        currentBalance: Number(balance.value),
         transactionsHistory: [
           {
             date: "",
@@ -42,17 +42,21 @@ function createUser() {
   return user;
 }
 
-enviarCadastro.addEventListener("click", function () {
-  user = createUser();
-  users.push(user);
-  localStorage.setItem("usersData", JSON.stringify(users));
+document.addEventListener("DOMContentLoaded", function () {
+  enviarCadastro.addEventListener("click", function () {
+    user = createUser();
+    users.push(user);
+    localStorage.setItem("usersData", JSON.stringify(users));
+  });
 });
 
-window.addEventListener("DOMContentLoaded", function () {
-  if (localStorage.getItem("usersData")) {
-    users = JSON.parse(localStorage.getItem("usersData"));
-    console.log(users);
-  }
-});
+// window.addEventListener("DOMContentLoaded", function () {
+//   if (localStorage.getItem("usersData")) {
+//     users = JSON.parse(localStorage.getItem("usersData"));
+//     console.log(users);
+//   }
+// });
 
 //localStorage.clear();
+
+export { users };

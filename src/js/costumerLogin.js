@@ -14,8 +14,6 @@ let userName,
   withdrawAmount,
   depositAmount;
 
-export let loggedUserHtml = document.getElementById("costumerLogged");
-
 const submitBtn = document.getElementById("submitBtn");
 const loginForm = document.getElementById("formLogin");
 
@@ -23,6 +21,8 @@ function loginFormSubmit(event) {
   event.preventDefault();
   userName = document.getElementById("login").value;
   userSelected = users.find((element) => element.name == userName);
+  console.log(userSelected);
+  localStorage.setItem("userSelectedData", JSON.stringify(userSelected));
   if (userName === userSelected?.name) {
     showAlert(`Usuário encontrado, prosseguindo para o menu do usuário.`);
     loginForm.action = "/costumer.html";
@@ -33,7 +33,6 @@ function loginFormSubmit(event) {
     );
   }
 }
-//loggedUserHtml.textContent = userName;
 
 loginForm.addEventListener("keypress", function (event) {
   if (event.key === "Enter") {
@@ -44,17 +43,17 @@ loginForm.addEventListener("keypress", function (event) {
 submitBtn.addEventListener("click", loginFormSubmit);
 
 export function costumerMenu() {
-  if (userTypeSelection == 2 || userTypeSelection2 == 1) {
-    userName = showPrompt("Digite o nome de usuário.");
-    users.length == 0
-      ? showAlert("Nenhum usuário encontrado no banco de dados.")
-      : showAlert("Usuario encontrado no banco de dados.");
-    indexToBeSelected = users.findIndex((index) => index.name == userName);
+  // if (userTypeSelection == 2 || userTypeSelection2 == 1) {
+  //   userName = showPrompt("Digite o nome de usuário.");
+  //   users.length == 0
+  //     ? showAlert("Nenhum usuário encontrado no banco de dados.")
+  //     : showAlert("Usuario encontrado no banco de dados.");
+  //   indexToBeSelected = users.findIndex((index) => index.name == userName);
 
-    userSelected = users.filter((element, index) => index == indexToBeSelected);
-  }
+  //   userSelected = users.filter((element, index) => index == indexToBeSelected);
+  // }
 
-  users.length == 0 ? (costumerInput = 0) : (costumerInput = 1);
+  //users.length == 0 ? (costumerInput = 0) : (costumerInput = 1);
   let userBalance = userSelected[0].balance[0].currentBalance;
   while (costumerInput == 1) {
     costumerOperation = showPrompt(
@@ -101,3 +100,4 @@ export function costumerMenu() {
 }
 
 //costumerMenu();
+export { userSelected };
