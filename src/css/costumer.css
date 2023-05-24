@@ -9,3 +9,17 @@
 #operation {
     margin-top: 1rem
 }
+
+#balance {
+    background-color: transparent;
+    border: none;
+}
+
+label {
+    display: flex;
+    align-items: center;
+}
+
+label input[type="radio"] {
+    margin-right: 5px;
+}

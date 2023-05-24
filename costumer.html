@@ -5,10 +5,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="/src/css/styles.css" />
-    <link rel="stylesheet" href="/src/css/costumer.css">
+    <link rel="stylesheet" href="/src/css/costumer.css" />
     <title>M8K Bank - Costumer Area</title>
   </head>
-  <body">
+  <body>
     <div class="mainForm">
       <form action="" class="optionsForm" id="costumerForm">
         <h2 class="formTitle">
@@ -18,17 +18,29 @@
           Cliente:&nbsp
           <p id="costumerLogged"></p>
         </h2>
-        <label >
-          Sacar: <br /><input type="number" name="opcao" value="" id="withdraw" class="userValues"/>
+        <label for="sacar">
+          Sacar: <br /><input
+            type="radio"
+            name="opcao"
+            value=""
+            id="withdraw"
+            class="userValues"
+          />
         </label>
         <br />
 
-        <label>
-          Depositar: <br /><input type="number" name="opcao" value="" id="deposit" class="userValues"/>
+        <label for="depositar">
+          Depositar: <br /><input
+            type="radio"
+            name="opcao"
+            value=""
+            id="deposit"
+            class="userValues"
+          />
         </label>
         <br />
 
-        <label>
+        <label for="saldo">
           Saldo atual: <br /><input
             type="text"
             readonly
@@ -38,7 +50,7 @@
             class="userValues"
           />
         </label>
-        <input type="submit" value="Realizar operação" id="operation">
+        <input type="submit" value="Realizar operação" id="operation" />
       </form>
     </div>
     <script src="/src/js/modules/backBtn3.js"></script>
